@@ -19,9 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "assets/vendors/base/vendors.bundle.css", "assets/demo/default/base/style.bundle.css",
+        "assets/vendors/custom/fullcalendar/fullcalendar.bundle.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/vendors/base/vendors.bundle.js", "assets/demo/default/base/scripts.bundle.js",
+        "assets/app/js/dashboard.js", "assets/vendors/custom/fullcalendar/fullcalendar.bundle.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
