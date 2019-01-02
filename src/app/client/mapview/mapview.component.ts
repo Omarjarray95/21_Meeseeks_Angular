@@ -41,9 +41,36 @@ ngOnInit() {
   });
   this.map.resize();
   this.map.addControl(new mapboxgl.FullscreenControl());
+  this.map.on('load', () => this.fillmarkers()
+
+  );
 }
-fillmarkers()
-{
+async fillmarkers()
+{  await delay(1000);
+
+  for (let entry of this.clients) {
+    this.cs.getLatLng(entry.address);
+    await delay(1000);
+   
+    var el = document.createElement('div');
+    el.className = 'marker';
+    el.style.width='20px';
+    el.style.height='20px';
+    el.style.content='test';
+    el.style.borderRadius='50px';
+    el.style.border='3px solid #A94442';
+    new mapboxgl.Marker(el).setLngLat([this.cs.lng,this.cs.lat]).setPopup(new mapboxgl.Popup({ offset: 25 })
+    .setHTML('<div class="marker"><h3>' +entry.clientName + '</h3><p>' +'Client' + '</p></div>'))
+    .addTo(this.map);
   
-}
-}
+  
+  
+  
+  
+  
+  }
+  }
+  }
+  function delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+   }
