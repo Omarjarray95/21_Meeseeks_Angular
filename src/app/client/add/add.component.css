@@ -1,0 +1,43 @@
+@import 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css';
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  .req  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .reqinvalid{
+    border-left: 5px solid #a94442; /* red */
+  }
+  .map
+  {
+    height: 300px;
+    width: 500px;
+    margin: 1%;
+  }
+  h4
+  {
+    background-color: red;
+  }
+  .suugestions
+  {
+    background-color: #42A948;
+    color:green!important;
+    cursor: pointer;
+  }
+  ul li a strong
+  {
+    color: red
+  }
+.mapboxgl-marker{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border:1px solid gray;
+    background-color:yellow;
+}

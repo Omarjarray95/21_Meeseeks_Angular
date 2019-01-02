@@ -1,0 +1,52 @@
+@import 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css';
+tr:hover
+{
+    cursor: pointer;
+}
+.test
+{ z-index: 900;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    background-color: rgba(225,228,239,0.7) ;
+    width: 30%;
+    height: 35%;
+    border-radius: 20px;
+    overflow: hidden;
+    opacity: 0.8;
+}
+.test:hover
+{ 
+    opacity: 1;
+}
+.sub-test
+{
+    margin: 5%;
+    background-color: rgba(44,46,62,0.2);
+}
+.close
+{
+    color: #FFFFFF;
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    z-index: 1000;
+
+}
+
+.map
+{
+    color: #2C2E3E;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+ opacity: 0.8;
+ border-radius: 20px;
+ 
+
+}
+.marker
+{
+    position: relative;
+}

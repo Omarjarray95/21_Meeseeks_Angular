@@ -1,0 +1,86 @@
+<div class="row row-map h-100">
+    <div class="container-fluid">
+        <h2 class="heading">Map</h2>
+        <hr/>
+      <div id="map"></div>
+      <div style="width: 1140px;height: 30px;display:flex;justify-content: space-around;font-weight: bold;">
+        <div>
+            <span>
+      <div style=" height: 20px;width: 20px; background-color: #F4516C;margin: 2px;"></div>Client </span>
+    </div>
+    <div>
+      
+        <div style=" height: 20px;width: 20px; background-color: green;margin: 2px;"></div>Levio Employees
+      </div>
+      <div>
+      
+          <div style=" height: 20px;width: 20px; background-color: #00BFFF;margin: 2px;"></div>Levio Freelancers
+        </div>
+
+      </div>
+     <div style= "height: 200px;width: 800px;background-color:rgba(44,46,62,0.4); border-radius: 10px;margin: 10px;margin-left: 140px ;margin-top: 20px;">
+      <div  style="margin-left: 100px;top: 30px;position: relative;  color: rgba(255,255,255,0.9);">
+          <span>   <strong>Program Name:</strong> {{o.programName}}</span><br>
+          <span>   <strong>Project Name:</strong> {{o.project.name}}</span><br>
+          <span>   <strong>Client:</strong><a style="text-decoration: none;color: white" href="#"> {{o.project.client.clientName}}</a></span><br>
+          <span>   <strong>Description:</strong></span><br>
+            <p>{{o.project.description}}</p>
+          <div   style="float: right;">
+      
+          </div>
+          </div>
+        </div>
+    </div>
+  
+ 
+  </div>
+  <div class="m-portlet m-portlet--mobile">
+
+  <div class="m-portlet__body">
+    
+      <!--begin: Datatable -->
+      <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+          <thead>
+              <tr>
+                  <th>Function</th>
+                  <th>FullName</th>
+                  <th>Email</th>
+                  <th>Address</th>
+               
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <th>Project Manager</th>
+                  <td></td>
+                  <td>{{o.projectManagerName}}</td>
+                  <td></td>
+                 
+              </tr>
+              <tr>
+                  <th>Assignment Manager</th>
+                  <td></td>
+                  <td>{{o.assignmentManager}}</td>
+                  <td></td>
+                 
+              </tr>
+              <tr>
+                  <th>Financial Manager</th>
+                  <td></td>
+                  <td>{{o.financialManager}}</td>
+                  <td></td>
+                 
+              </tr>
+              <ng-container *ngFor="let item of o.ressources">
+              <tr>
+                  <th>{{item.contractType}}</th>
+                  <td>{{item.firstName}} {{item.lastName}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.address}}</td>
+                 
+              </tr>
+            </ng-container>
+          </tbody>
+      </table>
+  </div>
+  </div>

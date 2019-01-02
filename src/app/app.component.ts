@@ -14,13 +14,18 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent
 {
+
+   loggedin ="";
   constructor( private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title)
   {
-
+    localStorage.setItem('loggedin', "true");
+    
   }
   ngOnInit() {
+    this.loggedin = localStorage.getItem('loggedin');
+        this.loggedin="true"
     this.router.events.filter((event) => event instanceof NavigationEnd)
     .map(() => this.activatedRoute)
     .map((route) => {

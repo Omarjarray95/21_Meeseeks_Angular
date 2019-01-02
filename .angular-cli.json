@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+    
         "assets/vendors/base/vendors.bundle.css", "assets/demo/default/base/style.bundle.css",
         "assets/vendors/custom/fullcalendar/fullcalendar.bundle.css"
       ],

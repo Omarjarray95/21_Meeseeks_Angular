@@ -1,0 +1,133 @@
+
+<div class="m-portlet">
+    <div class="m-portlet__head">
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <span class="m-portlet__head-icon m--hide">
+            <i class="la la-gear"></i>
+          </span>
+          <h3 class="m-portlet__head-text">
+           Fill the form to add a new project:
+          </h3>
+        </div>
+      </div>
+    </div>
+
+
+    <!--begin::Form-->
+
+    <form (ngSubmit)="onSubmit()" #clientForm="ngForm" class="m-form m-form--label-align-right">
+      <div class="m-portlet__body">
+        <div class="m-form__section m-form__section--first">
+          <div class="m-form__heading">
+            <h3 class="m-form__heading-title">Project Info:</h3>
+          </div>
+             <div class="form-group m-form__group row">
+              <label class="col-lg-2 col-form-label">Client Name:</label>
+              <div class="col-lg-6">
+                <select name="client" required [(ngModel)]="neworganigram.project.client.idUser"  class="form-control m-input">
+                  <option value="{{item.idUser}}" *ngFor="let item of clients" >{{item.clientName}}</option>
+                 
+                </select>
+                <span class="m-form__help">Please enter the project full name</span>
+             
+              </div>
+            </div>
+          <div class="form-group m-form__group row">
+            <label class="col-lg-2 col-form-label">Program Name:</label>
+            <div class="col-lg-6">
+              
+              <input  #programtName="ngModel" required [(ngModel)]="neworganigram.programName" name="prognamename" type="text" class="form-control m-input"  placeholder="Enter full name">
+              <span class="m-form__help">Please enter the program name.</span>
+            </div>
+          </div>
+          <div class="form-group m-form__group row">
+              <label class="col-lg-2 col-form-label">Project Name:</label>
+              <div class="col-lg-6">
+                
+                <input  #projectName="ngModel" required [(ngModel)]="neworganigram.project.name" name="name" type="text" class="form-control m-input"  placeholder="Enter full name">
+                <span class="m-form__help">Please enter the project full name.</span>
+              </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-lg-2 col-form-label">Description:</label>
+                <div class="col-lg-6">
+                    <textarea  required #description="ngModel" name="description" [(ngModel)]="neworganigram.project.description" class="form-control m-input" id="exampleTextarea" rows="3" style="height: 49px;"></textarea>
+
+                  <span class="m-form__help">Please enter the project description.</span>
+                </div>
+              </div>
+            <div class="form-group m-form__group row">
+                <label class="col-lg-2 col-form-label">Start Date:</label>
+                <div class="col-lg-6">
+                  
+                  <input min="{{today}}" #projectBegin="ngModel" required [(ngModel)]="neworganigram.project.dateStart" name="ename" type="date" class="form-control m-input"  placeholder="Enter full name">
+                  <span class="m-form__help">Please enter the project starting date.</span>
+                </div>
+              </div>
+              <div class="form-group m-form__group row">
+                  <label class="col-lg-2 col-form-label">End Date:</label>
+                  <div class="col-lg-6">
+                    
+                    <input min="{{today|lowercase}}" #projectEnd="ngModel" required [(ngModel)]="neworganigram.project.dateEnd" name="dname" type="date" class="form-control m-input"  placeholder="Enter full name">
+                    <span class="m-form__help">Please enter the project End Date.</span>
+                  </div>
+                </div>
+        </div>
+        <div class="m-form__seperator m-form__seperator--dashed"></div>
+        <div class="m-form__section m-form__section--first">
+            <div class="m-form__heading">
+              <h3 class="m-form__heading-title">Project Contributors:</h3>
+            </div>
+              
+            <div class="form-group m-form__group row">
+              <label class="col-lg-2 col-form-label">Project Manager Email</label>
+              <div class="col-lg-6">
+                
+                <input  #managerName="ngModel" required [(ngModel)]="neworganigram.projectManagerName" name="managername" type="text" class="form-control m-input"  placeholder="Enter full name">
+                <span class="m-form__help">Please enter the manager name Email address.</span>
+              </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <label class="col-lg-2 col-form-label">Assignment Manager Email:</label>
+                <div class="col-lg-6">
+                  
+                  <input  #assignName="ngModel" required [(ngModel)]="neworganigram.assignmentManager" name="assignname" type="text" class="form-control m-input"  placeholder="Enter full name">
+                  <span class="m-form__help">Please enter the Assignment manager Email address.</span>
+                </div>
+              </div>
+              <div class="form-group m-form__group row">
+                  <label class="col-lg-2 col-form-label">Financial Manager Email:</label>
+                  <div class="col-lg-6">
+                    
+                    <input  #finName="ngModel" required [(ngModel)]="neworganigram.financialManager" name="finname" type="email" class="form-control m-input"  placeholder="Enter full name">
+                    <span class="m-form__help">Please enter the Financial manager Email address.</span>
+                  </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label class="col-lg-2 col-form-label">Levio Resources:</label>
+                    <div class="col-lg-6">
+                      <select multiple name="resource" required [(ngModel)]="selected"  class="form-control m-input">
+                        <option [ngValue]="item"  *ngFor="let item of resources" >{{item.firstName}} {{item.lastName}}   |   {{item.address}}  |<strong> {{item.contractType}}</strong></option>
+                       
+                      </select>
+                      <span class="m-form__help">Choose Levio resources to add.</span>
+                   
+                    </div>
+                  </div>
+          </div>
+      </div>
+      <div class="m-portlet__foot m-portlet__foot--fit">
+        <div class="m-form__actions m-form__actions">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+              <button  [disabled]="clientForm.invalid"   type="submit"  class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!--end::Form-->
+  </div>

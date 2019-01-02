@@ -1,3 +1,79 @@
-<p>
-  add works!
-</p>
+
+<div class="m-portlet">
+    <div class="m-portlet__head">
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <span class="m-portlet__head-icon m--hide">
+            <i class="la la-gear"></i>
+          </span>
+          <h3 class="m-portlet__head-text">
+              Client Info:
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <!--begin::Form-->
+
+    <form (ngSubmit)="onSubmit()" #clientForm="ngForm" class="m-form m-form--label-align-right">
+      <div class="m-portlet__body">
+        <div class="m-form__section m-form__section--first">
+          <div class="m-form__heading">
+            <h3 class="m-form__heading-title"></h3>
+          </div>
+          <div class="form-group m-form__group row">
+            <label class="col-lg-2 col-form-label">Full Name:</label>
+            <div class="col-lg-6">
+              
+              <input  #clientName="ngModel" required [(ngModel)]="newclient.clientName" name="clientName" type="text" class="form-control m-input"  placeholder="Enter full name">
+              <span class="m-form__help">Please enter your full name</span>
+                        <div [hidden]="clientName.valid || clientName.pristine"
+                            class="alert alert-danger">
+                             Name is required
+                       </div>
+            </div>
+          </div>
+          <div class="form-group m-form__group row">
+            <label class="col-lg-2 col-form-label">Email address:</label>
+            <div class="col-lg-6">
+              <input required [(ngModel)]="newclient.email" name="email" type="email" class="form-control m-input" placeholder="Enter email">
+              <span class="m-form__help">We'll never share your email with anyone else</span>
+            </div>
+          </div>
+          <div class="form-group m-form__group row">
+              <label class="col-lg-2 col-form-label">Phone:</label>
+              <div class="col-lg-6">
+                <input required [(ngModel)]="newclient.phoneNumber" name="phone" type="string" class="form-control m-input" placeholder="Enter email">
+                <span class="m-form__help">We'll never share your email with anyone else</span>
+              </div>
+            </div>
+      
+             <div class="form-group m-form__group row">
+            <label class="col-lg-2 col-form-label">Address:</label>
+            <div class="col-lg-6">
+              <input readonly [(ngModel)]="newclient.address" name="address"  id='geocode-input' required class='form-control m-input' value="test">
+              
+              <div id="map" class="map "></div>
+
+              <span class="m-form__help">Please enter a valid address</span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="m-form__seperator m-form__seperator--dashed"></div>
+       
+      </div>
+      <div class="m-portlet__foot m-portlet__foot--fit">
+        <div class="m-form__actions m-form__actions">
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-6">
+              <button  [disabled]="clientForm.invalid" type="submit"  class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!--end::Form-->
+  </div>
